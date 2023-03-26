@@ -1,85 +1,54 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <q-layout view="hHh lpR lfr">
+  <app-header></app-header>
+    <q-page-container>
+      <home-carousel></home-carousel>
+      <div class="banner-section row q-pa-lg">
+        <div class="col-6">
+          <banner-item classes="q-py-lg q-ma-lg" height="600" image-src="../src/assets/images/bn23.jpg"
+          title="Chocolate Cake"></banner-item>
+        </div>
+        <div class="col-6">
+          <banner-item classes="q-pa-lg q-ma-lg" height="290" image-src="../src/assets/images/bn24.jpg"
+                       title="Almond Chocolate"></banner-item>
+          <banner-item classes="q-pa-lg q-ma-lg" height="290" image-src="../src/assets/images/bn25.jpg"
+                       title="Fruit Chocolate"></banner-item>
+        </div>
+      </div>
+      <div class="items-section row wrap justify-center q-pa-lg">
+        <div class="col-auto justify-center q-pb-lg">
+          <section-title></section-title>
+        </div>
+        <div class="col-12">
+          <div class="row justify-center">
+            <div class="col-lg-3 col-6 col-md-4 q-pa-md">
+              <product-tiles height="300" image-src="../src/assets/images/1.1.jpg" isOnSale="true"></product-tiles>
+            </div>
+            <div class="col-lg-3 col-6 col-md-4 q-pa-md">
+              <product-tiles height="300" image-src="../src/assets/images/3.1.jpg"></product-tiles>
+            </div>
+            <div class="col-lg-3 col-6 col-md-4 q-pa-md">
+              <product-tiles height="300" image-src="../src/assets/images/4.1.jpg"></product-tiles>
+            </div>
+            <div class="col-lg-3 col-6 col-md-4 q-pa-md">
+              <product-tiles height="300" image-src="../src/assets/images/5.1.jpg"></product-tiles>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <router-view /> -->
+    </q-page-container>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  </q-layout>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+<script setup>
+import { ref } from 'vue'
+import AppHeader from './components/AppHeader.vue'
+import HomeCarousel from './components/HomeCarousel.vue'
+import BannerItem from './components/HomeBannerItem.vue'
+import SectionTitle from './components/SectionTitle.vue'
+import ProductTiles from './components/ProductTiles.vue'
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+</script>
