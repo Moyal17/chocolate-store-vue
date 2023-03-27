@@ -1,6 +1,6 @@
 <template>
-  <div class="product-tile q-mb-lg ">
-    <div class="img-product" :style="{'background-image': `url(${props.imageSrc})`}">
+  <div class="product-tile q-mb-lg " :style="{ height: props.height + 'px'}">
+    <div class="img-product" :style="{'background-image': `url(${props.imageSrc})`, height: props.height + 'px'}">
       <figure v-if="props.isOnSale" class="label-sale text-center">
         <span class="sale-percent">20% off</span>
       </figure>
@@ -56,7 +56,7 @@
 <script setup lang="ts">
 
 const props = defineProps({
-  height: String,
+  height: {type: String, default: '300'},
   imageSrc: String,
   title: String,
   isOnSale: Boolean
@@ -107,8 +107,6 @@ const props = defineProps({
   color: #111111
   font-size: 0
 
-.product-tile .product-icon-action li
-  transform: rotate(90deg)
 
 .product-tile .product-icon-action li a svg,
 .product-tile .product-icon-action li button svg
