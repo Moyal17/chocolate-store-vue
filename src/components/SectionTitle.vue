@@ -2,7 +2,7 @@
   <div class="section-title col-auto items-center text-center">
     <h4 class="title col-12 q-pb-sm"> {{ props.title }}</h4>
     <span v-if="props.description" class="description col-12 q-pt-sm">
-     <p class="q-ma-none q-pt-sm"> {{ props.description }}</p>
+     <span class="q-ma-none q-pt-sm"> {{ props.description }}</span>
     </span>
   </div>
 </template>
@@ -20,11 +20,12 @@ const props = defineProps({
 
 .section-title .description
   color: #666666
+
 .section-title .title:before
   content: ""
   width: 50%
   height: 2px
-  background: #915005
+  background: var(--brown-color)
   position: absolute
   left: 50%
   -webkit-transform: translateX(-50%)
@@ -35,5 +36,4 @@ const props = defineProps({
   font-size: 1.5rem
   font-weight: 600
   text-transform: uppercase
-
 </style>

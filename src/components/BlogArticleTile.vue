@@ -8,11 +8,9 @@
       </div>
     </div>
     <div class="blog-tile-content text-center col-12 q-pt-md">
-      <a class="blog-category" href="#">News</a>
-      <h4 class="title-blog q-mb-none q-pt-xs"><a href="#" class="fontWeight600">Your favorite flavor</a></h4>
-      <p class="content q-mb-none q-pt-md">
-        Chocolate is a food made from the fruit of the cocoa tree. Chocolate is the basic ingredient in many kinds of candy,...
-      </p>
+      <a class="blog-category" href="#">{{ props.category }}</a>
+      <h4 class="title-blog q-mb-none q-pt-xs"><a href="#" class="fontWeight600">{{ props.title }}</a></h4>
+      <p class="content q-mb-none q-pt-md">{{ props.subtitle }}</p>
     </div>
   </div>
 </template>
@@ -24,7 +22,8 @@ const props = defineProps({
   date: { type: Date, default: new Date() },
   imageSrc: String,
   title: String,
-  description: String,
+  category: String,
+  subtitle: String,
 })
 
 </script>
@@ -52,7 +51,7 @@ const props = defineProps({
   width: 70px
   height: 70px
   background-color: #fff
-  color: #111111
+  color: var(--primary-color)
   font-weight: 600
   text-align: center
   text-transform: uppercase
@@ -65,7 +64,7 @@ const props = defineProps({
 
 .blog-tile .day:after
   content: ''
-  background-color: #111111
+  background-color: var(--primary-color)
   width: 27px
   height: 1px
   display: block
@@ -92,7 +91,7 @@ const props = defineProps({
   transform: translateX(-50%)
   height: 1px
   width: 50px
-  background: #915005
+  background: var(--brown-color)
 
 .blog-tile .title-blog a
   font-size: 1.3rem

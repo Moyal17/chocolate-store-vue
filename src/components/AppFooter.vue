@@ -101,6 +101,6 @@ footer h5:after
   height: 1px
   width: 30px
   margin-top: 5px
-  background-color: #111111
+  background-color: var(--primary-color)
 
 </style>

@@ -30,15 +30,15 @@ h5 {
 
 a {
   text-decoration: none;
-  color: #111111;
+  color: var(--primary-color);
   font-size: 1.1rem;
 }
 
 
 .app-btn {
-  color: #ffffff;
-  background: #111111;
-  border: 1px solid #111111;
+  color: var(--white-color);
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
   transition: all .3s;
   font-size: 16px;
   font-weight: 400;
@@ -48,33 +48,33 @@ a {
 }
 
 .app-btn:hover, .app-btn:active, .app-btn:focus, .app-btn:visited {
-  background: #915005;
-  border-color: #915005;
-  color: #ffffff;
+  background: var(--brown-color);
+  border-color: var(--brown-color);
+  color: var(--white-color);
 }
 
 .app-btn.white {
-  color: #111111;
-  background: #ffffff;
-  border: 1px solid #ffffff;
+  color: var(--primary-color);
+  background: var(--white-color);
+  border: 1px solid var(--white-color);
 }
 
 .app-btn.outline {
-  color: #111111;
+  color: var(--primary-color);
   background: transparent;
 }
 .app-btn.outline:hover, .app-btn.outline:active, .app-btn.outline:focus, .app-btn.outline:visited {
-  color: #ffffff;
-  background: #111111;
+  color: var(--white-color);
+  background: var(--primary-color);
 }
 
 .app-btn.outline.white {
-  color: #ffffff;
+  color: var(--white-color);
   background: transparent;
 }
 .app-btn.outline.white:hover, .app-btn.outline.white:active, .app-btn.outline.white:focus, .app-btn.outline.white:visited {
-  color: #111111;
-  background: #ffffff;
+  color: var(--primary-color);
+  background: var(--white-color);
 }
 
 .list-unstyled {
@@ -95,8 +95,6 @@ a {
   font-weight: 700;
 }
 
-
-
 .backgroundImage {
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -104,7 +102,18 @@ a {
   -o-background-size: cover;
   background-size: cover;
 }
+.text-strike {
+  text-decoration: line-through
+}
 
+.fullScreen {
+  background-image: url("../assets/images/parallax2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
 
 
 @-webkit-keyframes zoomIn{

@@ -21,7 +21,6 @@ const props = defineProps({
   imageSrc: String,
   title: String
 })
-console.log('image', props.imageSrc)
 
 </script>
 

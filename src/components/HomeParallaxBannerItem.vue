@@ -19,7 +19,6 @@ const props = defineProps({
   imageSrc: String,
   title: String
 })
-console.log('image', props.imageSrc)
 
 </script>
 
@@ -41,7 +40,7 @@ console.log('image', props.imageSrc)
     color: #161616
 
 .parallax-banner-items .backgroundImage
-  background-position: 50% -45%
+  background-position: center center
 
 .parallax-banner-items .backgroundImage
   position: absolute
