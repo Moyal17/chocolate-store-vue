@@ -107,7 +107,7 @@ a {
 }
 
 .fullScreen {
-  background-image: url("../assets/images/parallax2.png");
+  background-image: url("@/assets/images/parallax2.png");
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;

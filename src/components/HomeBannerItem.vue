@@ -30,7 +30,7 @@ const props = defineProps({
 
 .banner-1
   height: 400px
-  background-image: url("../assets/images/bn2.1.jpg")
+  background-image: url("@/assets/images/bn2.1.jpg")
   background-size: cover
   background-repeat: no-repeat
 

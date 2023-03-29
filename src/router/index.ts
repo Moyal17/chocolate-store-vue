@@ -41,11 +41,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: "auto",
-  });
+  window.scrollTo({top: 0, left: 0, behavior: "auto"});
 })
 
 export default router

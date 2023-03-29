@@ -2,7 +2,7 @@
   <q-header elevated height-hint="98" id="header">
       <div class="row items-center q-pa-lg">
         <div class="col text-left" @click="goTo('home')">
-          <img src="../assets/logo.png" alt="logo" class="app-logo">
+          <img src="@/assets/logo.png" alt="logo" class="app-logo">
         </div>
         <div class="col-6 text-center">
           <ul class="navbar-nav">

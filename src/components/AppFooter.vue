@@ -7,7 +7,7 @@
             <div class="info-footer q-pa-md">
               <div class="logo-top">
                 <a href="/" class="logo">
-                  <img src="../assets/logo.png" alt="logo" class="app-logo">
+                  <img src="@/assets/logo.png" alt="logo" class="app-logo">
                 </a>
               </div>
               <p>Sophisticated simplicity for the<br>independent mind.</p>

@@ -25,7 +25,7 @@
 
 .carousel-1
   height: 600px
-  background-image: url("../assets/images/bn2.1.jpg")
+  background-image: url("@/assets/images/bn2.1.jpg")
   background-size: cover
   background-repeat: no-repeat
 

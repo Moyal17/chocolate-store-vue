@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import type { User } from '@/types';
 export const signInUser = (body: { email: string, password: string }) =>
     new Promise((resolve, reject) => {
         if (body.password === 'Aa123456!') {
@@ -21,15 +21,6 @@ export const signInUser = (body: { email: string, password: string }) =>
         }
     })
 
-export type User = {
-    firstName: string
-    LastName: string
-    email: string
-    address: string
-    city: string
-    country: string
-    password: string
-}
 export const signUpUser = (body: User) => new Promise((resolve) => {
     const timeout = setTimeout(() => {
         const user = {...body, id: 232}

@@ -44,9 +44,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import cart from '../assets/cart.svg'
-import favorite from '../assets/favorite.svg'
-import quickView from '../assets/quickView.svg'
+import cart from '@/assets/cart.svg'
+import favorite from '@/assets/favorite.svg'
+import quickView from '@/assets/quickView.svg'
 
 
 const router = useRouter()

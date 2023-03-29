@@ -1,6 +1,6 @@
 import {createStore} from 'vuex'
-// @ts-ignore
-import { signInUser, signUpUser } from "@/api/user";
+import {signInUser, signUpUser} from "@/api/user";
+import type {User} from '@/types';
 
 const userStore = createStore({
     state () {
@@ -9,6 +9,9 @@ const userStore = createStore({
             isAuthorized: false,
             userOrders: []
         };
+    },
+    mutations: {
+
     },
     getters: {
         findOrderById: (state) => (orderId: number) => {
@@ -19,10 +22,21 @@ const userStore = createStore({
         }
     },
     actions: {
-        signIn: (ctx) => async (body: object) => {
+        signIn: (ctx) => async (
+                body: { email: string, password: string }
+            ): Promise<unknown> => {
+            // Question:  TS2322: Type 'unknown' is not assignable to type '{ userInfo: User; accessToken: string; }'.
+            console.log('ctx ', ctx);
+            const data = await signInUser(body);
+            return data;
+        },
+        signUp: (ctx) => async (
+            body: User
+        ): Promise<unknown> => {
             console.log('ctx ', ctx)
-            const data = await signInUser(body)
-        }
+            const data = await signUpUser(body);
+            return data;
+        },
     }
 })
 
