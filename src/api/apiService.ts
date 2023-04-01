@@ -47,7 +47,8 @@ const apiMethods = {
     }
   },
   products: {
-
+    getProducts: () => axiosClient.get(`/products`),
+    findProductById: (id: number) => axiosClient.get(`/products/${id}`),
   },
   orders: {
 

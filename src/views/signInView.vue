@@ -24,7 +24,6 @@
                   />
                 </template>
               </q-input>
-              <q-toggle v-model="accept" label="Remember me"/>
               <div class="row wrap items-end justify-end">
                 <div class="float-right">
                   <q-btn :loading="isLoading" color="primary" type="submit" label="Submit"/>

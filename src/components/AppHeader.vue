@@ -19,7 +19,7 @@
         </div>
         <div class="col text-right">
           <span class="material-icons-outlined q-mx-xs" @click="goTo('login')">face</span>
-          <span class="material-icons-outlined q-mx-xs" @click="goTo('about')">favorite_border</span>
+          <span class="material-icons-outlined q-mx-xs" @click="goTo('signup')">favorite_border</span>
           <span class="material-icons-outlined q-mx-xs" @click="goTo('about')">shopping_cart</span>
         </div>
       </div>
