@@ -8,27 +8,15 @@
                 @submit="onSubmit"
                 @reset="onReset"
                 class="q-gutter-md">
-              <q-input
-                  outlined
-                  v-model="name"
-                  label="Full name *"
-                  hint="Name and surname"
-                  lazy-rules
-                  :rules="[ val => val && val.length > 0 || 'Please type something']"/>
-              <q-input v-model="email" outlined type="email" label="Email" />
 
+              <q-input v-model="email" outlined type="email" label="Email" lazy-rules
+                       :rules="[ val => val && val.length > 0 || 'Type your Email address']"/>
               <q-input v-model="password" outlined
                        label="password"
                        :type="isPwd ? 'password' : 'text'"
+                       :rules="[ val => val && val.length > 6 || 'at least 6 characters']"
                        hint="at least 6 characters with numbers or special character">
-                <template v-slot:append>
-                  <q-icon
-                      :name="isPwd ? 'visibility_off' : 'visibility'"
-                      class="cursor-pointer"
-                      @click="isPwd = !isPwd"
-                  />
-                </template>
-              </q-input>
+
               <q-toggle v-model="accept" label="I accept the license and terms" />
               <div class="row wrap items-end justify-end">
                 <div class="float-right">
@@ -46,50 +34,39 @@
   </div>
 </template>
 
+
 <script>
-import { useQuasar } from 'quasar'
-import { ref } from 'vue'
+import {useQuasar} from 'quasar'
+import {ref, computed} from 'vue'
+import {useStore} from 'vuex';
 
 export default {
-  setup () {
+  setup(props, context) {
     const $q = useQuasar()
-
-    const name = ref(null)
+    const store = useStore();
     const email = ref(null)
-    const age = ref(null)
-    const accept = ref(false)
     const password = ref('')
-    const isPwd = ref(true)
-    return {
-      name,
-      age,
-      accept,
-      password,
-      isPwd,
-      email,
-      onSubmit () {
-        if (accept.value !== true) {
-          $q.notify({
-            color: 'red-5',
-            textColor: 'white',
-            icon: 'warning',
-            message: 'You need to accept the license and terms first'
-          })
-        }
-        else {
-          $q.notify({
-            color: 'green-4',
-            textColor: 'white',
-            icon: 'cloud_done',
-            message: 'Submitted'
-          })
-        }
-      },
+    const accept = ref(false)
+    const isPwd = ref(false)
+    const isLoading = ref(false)
+    // Question: is it the more recommended way ?
+    const count = computed(() => store.state.count);
 
-      onReset () {
-        name.value = null
-        age.value = null
-        accept.value = false
+    return {
+      isPwd,
+      isLoading,
+      email,
+      password,
+      accept,
+      store,
+      count,
+      async onSubmit() {
+
+
+      },
+      onReset() {
+        email.value = null
+        password.value = ''
       }
     }
   }

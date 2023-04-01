@@ -94,13 +94,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import HomeCarousel from '../components/HomeCarousel.vue'
-import BannerItem from '../components/HomeBannerItem.vue'
-import SectionTitle from '../components/SectionTitle.vue'
-import ProductTile from '../components/ProductTile.vue'
-import HomeParallaxBanner from '../components/HomeParallaxBanner.vue'
-import HomeParallaxBannerItem from '../components/HomeParallaxBannerItem.vue'
-import BlogArticleTile from '../components/BlogArticleTile.vue'
+import HomeCarousel from '@/components/HomeCarousel.vue'
+import BannerItem from '@/components/HomeBannerItem.vue'
+import SectionTitle from '@/components/SectionTitle.vue'
+import ProductTile from '@/components/ProductTile.vue'
+import HomeParallaxBanner from '@/components/HomeParallaxBanner.vue'
+import HomeParallaxBannerItem from '@/components/HomeParallaxBannerItem.vue'
+import BlogArticleTile from '@/components/BlogArticleTile.vue'
 import {blogPosts, homeBanners, products} from '@/data';
 
 const productsList = ref(products.slice(0,6));
