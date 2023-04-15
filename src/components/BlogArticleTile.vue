@@ -1,7 +1,7 @@
 <template>
   <div class="blog-tile row wrap">
     <div class="blog-img col-12">
-      <div class="backgroundImage" :style="{'background-image': `url(${props.imageSrc})`, height: props.height + 'px'}"></div>
+      <div class="backgroundImage" :style="{'background-image': `url(${props.image})`, height: props.height + 'px'}"></div>
       <div class="date">
         <div class="day fontWeight600">{{ props.date.getDate() }}</div>
         <div class="month">Oct</div>
@@ -20,7 +20,7 @@
 const props = defineProps({
   height: {type: String, default: '300'},
   date: { type: Date, default: new Date() },
-  imageSrc: String,
+  image: String,
   title: String,
   category: String,
   subtitle: String,

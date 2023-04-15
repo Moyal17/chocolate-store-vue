@@ -77,6 +77,17 @@ a {
   background: var(--white-color);
 }
 
+.app-btn.outline.primary {
+  color: var(--brown-color);
+  background: transparent;
+  border: 1px solid var(--brown-color);
+}
+.app-btn.outline.primary:hover, .app-btn.outline.primary:active, .app-btn.outline.primary:focus, .app-btn.outline.primary:visited {
+  color: var(--white-color);
+  background: var(--brown-color);
+  border: 1px solid var(--brown-color);
+}
+
 .list-unstyled {
   padding-left: 0;
   list-style: none;
@@ -115,7 +126,11 @@ a {
   align-items: center;
 }
 
-
+.divider {
+  border-bottom: 1px solid #e7e7e7;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
 @-webkit-keyframes zoomIn{
   from {
     -webkit-transform: scale(1);

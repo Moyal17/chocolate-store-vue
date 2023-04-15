@@ -2,7 +2,7 @@
   <div :class="`${props.classes} banner-item row banner-1 items-center q-pa-lg`"
        :style="{
         height: props.height + 'px',
-        'background-image': 'url(' + props.imageSrc + ')'
+        'background-image': 'url(' + props.image + ')'
         }">
     <div class="col column items-center text-center">
       <div class="col-12 text-center">
@@ -18,7 +18,7 @@ import {ref, computed} from 'vue'
 const props = defineProps({
   height: String,
   classes: String,
-  imageSrc: String,
+  image: String,
   title: String
 })
 

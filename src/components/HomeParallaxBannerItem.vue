@@ -1,6 +1,6 @@
 <template>
   <div class="parallax-banner-items q-pa-xl">
-    <div class="backgroundImage" :style="{ height: props.height + 'px', 'background-image': 'url(' + props.imageSrc + ')'}"></div>
+    <div class="backgroundImage" :style="{ height: props.height + 'px', 'background-image': 'url(' + props.image + ')'}"></div>
     <div class="row items-start justify-center banner-content text-center" :style="{ height: props.height + 'px'}">
       <div class="col list-inline info-top">
         <h3 class="title-banner">{{ title }}</h3>
@@ -16,7 +16,7 @@ import {ref, computed} from 'vue'
 const props = defineProps({
   height: String,
   classes: String,
-  imageSrc: String,
+  image: String,
   title: String
 })
 

@@ -1,14 +1,14 @@
 <template>
   <div class="product-tile q-mb-lg">
-    <div class="img-product" :style="{'background-image': `url(${props.imageSrc})`, 'min-height': props.height + 'px'}">
+    <div class="img-product" :style="{'background-image': `url(${props.image})`, 'min-height': props.height + 'px'}">
       <figure v-if="props.sale" class="label-sale text-center">
         <span class="sale-percent">{{props.sale}}% off</span>
       </figure>
       <ul class="product-icon-action list-unstyled text-center">
         <li class="add-to-cart">
-          <button type="button" class="q-pa-sm">
+          <button type="button" class="q-pa-sm" @click="emitOpenDialog">
             <i class="col-auto">
-              <img :src="cart" alt="cart"/>
+              <img :src="cart" alt="add to cart"/>
             </i>
           </button>
         </li>
@@ -42,17 +42,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, defineEmits } from 'vue';
 import { useRouter } from 'vue-router';
 import cart from '@/assets/cart.svg'
 import favorite from '@/assets/favorite.svg'
 import quickView from '@/assets/quickView.svg'
+import type { Product } from "@ts/interfaces";
 
+const emit = defineEmits(['openAddToCart']);
 
 const router = useRouter()
 const props = defineProps({
   height: {type: String, default: '300'},
-  imageSrc: {type: String, required: true},
+  image: {type: String, required: true},
   id: {type: Number, required: true},
   name: {type: String, required: true},
   price: {type: Number, required: true},
@@ -67,6 +69,9 @@ const goToProduct = (id : number) => {
   })
 }
 
+const emitOpenDialog = () => {
+  emit('openAddToCart')
+}
 </script>
 
 <style scoped lang="sass">

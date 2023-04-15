@@ -52,7 +52,7 @@ const tab = ref('Description')
 
 const props = defineProps({
   height: {type: String, default: '300'},
-  imageSrc: String,
+  image: String,
   title: String,
   isOnSale: Boolean
 })

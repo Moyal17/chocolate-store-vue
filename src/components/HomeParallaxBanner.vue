@@ -1,6 +1,6 @@
 <template>
   <div class="parallax-banner col"
-       :style="{ height: props.height + 'px', 'background-image': 'url(' + props.imageSrc + ')'}">
+       :style="{ height: props.height + 'px', 'background-image': 'url(' + props.image + ')'}">
     <div class="row justify-center items-center content-banner text-center" :style="{ height: props.height + 'px'}">
       <div class="col-8 content-banner text-center q-mb-xl">
         <h1 class="title-banner q-pb-lg">chocolate collection</h1>
@@ -17,7 +17,7 @@ import {ref, computed} from 'vue'
 const props = defineProps({
   height: String,
   classes: String,
-  imageSrc: String,
+  image: String,
   title: String
 })
 
