@@ -14,5 +14,7 @@ export interface Product {
     description?: string;
     image: string;
     price: number;
-    sale?: number
+    sale?: number,
+    qty?: number,
+    total?: number
 }

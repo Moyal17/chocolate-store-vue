@@ -1,8 +1,8 @@
 <template>
   <div class="product-tile q-mb-lg">
-    <div class="img-product" :style="{'background-image': `url(${props.image})`, 'min-height': props.height + 'px'}">
-      <figure v-if="props.sale" class="label-sale text-center">
-        <span class="sale-percent">{{props.sale}}% off</span>
+    <div class="img-product" :style="{'background-image': `url(${image})`, 'min-height': height + 'px'}">
+      <figure v-if="sale" class="label-sale text-center">
+        <span class="sale-percent">{{sale}}% off</span>
       </figure>
       <ul class="product-icon-action list-unstyled text-center">
         <li class="add-to-cart">
@@ -13,7 +13,7 @@
           </button>
         </li>
         <li class="quick-view">
-          <a class="q-pa-xs" @click="goToProduct(props.id)">
+          <a class="q-pa-xs" @click="goToProduct(id)">
             <i class="col-auto">
               <img :src="quickView" alt="quickView"/>
             </i>
@@ -27,13 +27,13 @@
           </a>
         </li>
       </ul>
-      <div class="column justify-start items-start" :style="{'min-height': `${props.height}px`, height: `${props.height}px`}">
-        <div class="col-8 full-width" @click="goToProduct(props.id)"></div>
-        <div class="col-4 q-pa-lg full-width" @click="goToProduct(props.id)">
-          <a>{{ props.name }}</a>
+      <div class="column justify-start items-start" :style="{'min-height': `${height}px`, height: `${height}px`}">
+        <div class="col-8 full-width" @click="goToProduct(id)"></div>
+        <div class="col-4 q-pa-lg full-width" @click="goToProduct(id)">
+          <a>{{ name }}</a>
           <p class="price-product">
-            <span class="text-strike text-grey-5 q-pr-md" v-if="salePrice">${{ props.price }} USD</span>
-            <span class="price">${{ salePrice || props.price }}</span>
+            <span class="text-strike text-grey-5 q-pr-md" v-if="salePrice">${{ Number.parseFloat(price).toFixed(2) }} USD</span>
+            <span class="price">${{ Number.parseFloat(salePrice || price).toFixed(2) }}</span>
           </p>
         </div>
       </div>
@@ -42,12 +42,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineEmits } from 'vue';
+import { ref, defineEmits, defineProps } from 'vue';
 import { useRouter } from 'vue-router';
 import cart from '@/assets/cart.svg'
 import favorite from '@/assets/favorite.svg'
 import quickView from '@/assets/quickView.svg'
-import type { Product } from "@ts/interfaces";
 
 const emit = defineEmits(['openAddToCart']);
 

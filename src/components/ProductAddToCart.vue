@@ -14,10 +14,10 @@
               <p>Name : {{ product.name }}</p>
               <p>Description : {{ product.description.slice(0, 100) }}...</p>
               <p>Price : <span class="product-price">
-                <span class="text-primary">${{ product.salePrice || product.price }}</span>
-                <span class="text-strike text-grey-5 q-pl-sm" v-if="product.salePrice">${{ product.price }}</span>
+                <span class="text-primary">${{ Number.parseFloat(product.salePrice || product.price).toFixed(2) }}</span>
+                <span class="text-strike text-grey-5 q-pl-sm" v-if="product.salePrice">${{ Number.parseFloat(product.price).toFixed(2) }}</span>
               </span></p>
-              <p>Quantity : <span class="product-qty">1</span></p>
+              <p>Quantity : <span class="product-qty">{{ product.qty }}</span></p>
             </div>
           </div>
         </div>
@@ -25,7 +25,7 @@
           <div class="divider"></div>
             <div class="column justify-start">
               <h6 class="q-ma-none">There are <span class="text-primary">3</span> items in your cart</h6>
-              <h6 class="total_price">Total price : <span class="product-total-cart text-primary">$50.00</span></h6>
+              <h6 class="total_price">Total price : <span class="product-total-cart text-primary">${{ Number.parseFloat(product.total).toFixed(2) }}</span></h6>
               <div class="divider"></div>
               <div class="actions q-pb-md">
                 <button class="app-btn outline primary shop-button" @click="onConfirm">Continue shopping</button>
