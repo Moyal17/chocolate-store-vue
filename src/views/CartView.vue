@@ -20,49 +20,25 @@
         </thead>
         <tbody>
         <tr class="cart_item" v-for="product in cartList" :key="product.id">
-          <td data-label="Product Name" class="product-thumbnail">
-            <a href="/products/round-chocolate?variant=39448991531106">
+          <td data-label="Product Name" class="product-thumbnail imgSize">
+            <a @click="goToProduct(product.id)">
               <q-img class="rounded-borders product-image" :src="product.image" :alt="product.name"></q-img>
             </a>
           </td>
           <td class="product-name-thumb" data-title="Product">
-            <a>{{product.name}}</a>
+            <a @click="goToProduct(product.id)">{{product.name}}</a>
           </td>
           <td data-label="Product Price" class="product-price" data-title="Price">
-            <span class="fontWeight600 text-subtitle1 amount">{{Number.parseFloat(product.price).toFixed(2)}}</span>
+            <span class="fontWeight600 text-subtitle1 amount">${{Number.parseFloat(product.price).toFixed(2)}}</span>
           </td>
           <td data-label="Quantity" class="product-quantity" data-title="Quantity">
             <AppInputQty :count="product.qty" max="10"/>
           </td>
           <td data-label="Sub Total" class="product-subtotal" data-title="Total">
-            <span class="fontWeight600 text-subtitle1 text-primary amount">{{Number.parseFloat(product.total).toFixed(2)}}</span>
+            <span class="fontWeight600 text-subtitle1 text-primary amount">${{Number.parseFloat(product.total).toFixed(2)}}</span>
           </td>
           <td class="product-remove">
-            <a><span class="material-icons text-h5">close</span></a>
-          </td>
-        </tr>
-        <tr class="cart_item">
-          <td data-label="Product Name" class="product-thumbnail">
-            <a href="/products/white-chocolate?variant=39448990515298"><img
-                src="//cdn.shopify.com/s/files/1/0549/2332/9634/products/3.1_small.png?v=1634888709"
-                alt="white chocolate"></a>
-          </td>
-          <td class="product-name-thumb" data-title="Product">
-            <a href="/products/white-chocolate?variant=39448990515298">white chocolate</a>
-
-
-          </td>
-          <td data-label="Product Price" class="product-price" data-title="Price">
-            <span class="fontWeight600 text-subtitle1 amount">$20.00</span>
-          </td>
-          <td data-label="Quantity" class="product-quantity" data-title="Quantity">
-            <AppInputQty :count="1" max="10"/>
-          </td>
-          <td data-label="Sub Total" class="product-subtotal" data-title="Total">
-            <span class="fontWeight600 text-subtitle1 text-primary amount">$20.00</span>
-          </td>
-          <td class="product-remove">
-            <a><span class="material-icons text-h5">close</span></a>
+            <a @click="removeProductFromCart(product.id)"><span class="material-icons text-h5">close</span></a>
           </td>
         </tr>
         </tbody>
@@ -91,16 +67,40 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useRouter } from 'vue-router';
 import AppInputQty from '../components/AppInputQty.vue'
+const router = useRouter()
+
 let cart = localStorage.getItem('cart') || null ;
 cart = cart ? JSON.parse(cart) : {};
-// localStorage.setItem("cart", JSON.stringify(cart));
-const cartList = [];
+
+let cartList = ref([]);
 if(cart && Object.keys(cart).length > 0){
   Object.keys(cart).forEach((id) => {
-    cartList.push(cart[id]);
+    cartList.value.push(cart[id]);
   })
+}
+
+const goToProduct = (id: number) => {
+  router.push({
+    name: 'product',
+    params: { id: id }
+  })
+}
+const saveCartToLocalStorage = () => {
+  const cart:any = {};
+  cartList.value.forEach((item) => cart[item.id] = item);
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+const removeProductFromCart = (id: number) => {
+  cartList.value = cartList.value.filter((item) => item.id !== id);
+  if(cartList.value.length === 0) {
+    const cartIcon = document.querySelector('.cartIcon');
+    if (cartIcon) cartIcon.classList.remove('active');
+  }
+  saveCartToLocalStorage();
 }
 </script>
 
@@ -116,7 +116,7 @@ if(cart && Object.keys(cart).length > 0){
 .subtitle
   color: #b0b0b0
 
-.product-thumbnail
-  height: 50px
-  width: 50px
+.product-thumbnail.imgSize
+  height: 120px
+  width: 120px
 </style>

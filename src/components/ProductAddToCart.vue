@@ -29,8 +29,8 @@
               <div class="divider"></div>
               <div class="actions q-pb-md">
                 <button class="app-btn outline primary shop-button" @click="onConfirm">Continue shopping</button>
-                <button class="app-btn outline primary go_cart q-mx-lg">Go to cart</button>
-                <button class="app-btn outline primary">Proceed to checkout</button>
+                <button class="app-btn outline primary go_cart q-mx-lg" @click="goToCart">Go to cart</button>
+                <button class="app-btn outline primary" @click="goToCart">Proceed to checkout</button>
               </div>
             </div>
         </div>
@@ -42,7 +42,8 @@
 <script setup lang="ts">
 import {useDialogPluginComponent} from 'quasar'
 import {defineProps} from 'vue'
-import ProductCarouselTile from '../components/ProductCarouselTile.vue'
+import { useRouter } from 'vue-router';
+const router = useRouter()
 
 const props = defineProps({
   text: {type: String},
@@ -62,6 +63,10 @@ const {dialogRef, onDialogHide, onDialogOK, onDialogCancel} = useDialogPluginCom
 // onDialogCancel - Function to call to settle dialog with "cancel" outcome
 const onConfirm = () => {
   onDialogOK({data: 'it ok'})
+}
+
+const goToCart = () => {
+  router.push({ name: 'cart' })
 }
 </script>
 

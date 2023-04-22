@@ -141,13 +141,22 @@ a {
   }
 }
 
-/* table */
-.table {
-  width: 100%;
-  margin-bottom: 1rem;
-  background-color: transparent;
+.cartIcon.active {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid white;
+  color: #fff!important;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 22px;
+  background: #915005;
 }
-
+/* table */
 table {
   border-collapse: collapse;
 }
@@ -156,7 +165,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
 .table {
   border-right: 1px solid #dee2e6;
   border-left: 1px solid #dee2e6;
@@ -171,11 +184,9 @@ table {
   vertical-align: bottom;
   border-bottom: 2px solid #dee2e6;
 }
-
 .table > tbody > tr > td {
   vertical-align: middle;
 }
-
 .cartView .cart-title th {
   border-bottom: 0;
   font-weight: 600;
@@ -186,7 +197,6 @@ table {
   padding: 15px 20px;
   border-left: 1px solid #dee2e6;
 }
-
 .cartView .cart_item .product-name-thumb,
 .cartView .cart_item .product-price,
 .cartView .cart_item .product-subtotal {
@@ -195,7 +205,6 @@ table {
   line-height: 1.6;
   font-weight: 400;
 }
-
 
 /* quantity btn */
 .js-qty {
@@ -208,8 +217,6 @@ table {
   border: 2px solid #ddd;
   margin-right: 15px;
 }
-
-
 .js-qty-adjust, .js-qty > span {
   cursor: pointer;
   position: absolute;
@@ -253,7 +260,6 @@ input::-webkit-inner-spin-button {
   border-right: 1px solid #ddd;
   border-radius: 0;
 }
-
 .js-qty .qty-minus,
 .js-qty .qty-plus {
   position: absolute;
@@ -265,7 +271,6 @@ input::-webkit-inner-spin-button {
   font-weight: 600;
   font-size: 14px;
 }
-
 .js-qty .qty-minus {
   right: 0;
   bottom: 0;
@@ -281,7 +286,7 @@ input::-webkit-inner-spin-button {
   top: 0;
   width: 42px;
 }
-
 .cartView .js-qty {
   width: 90px;
 }
+

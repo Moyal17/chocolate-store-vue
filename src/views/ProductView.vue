@@ -69,9 +69,11 @@ const productQtyChange = (count: number) => {
 const checkCart = (product: Product) => {
   let cart:any = localStorage.getItem('cart');
   cart = cart ? JSON.parse(cart) : {};
-  const {id , name, price, image, qty, total} = product
-  cart[product.id] = { id , name, price, image, qty, total };
+  const {id , name, price, image, qty, total, salePrice} = product
+  cart[product.id] = { id , name, price: salePrice || price, image, qty, total };
   localStorage.setItem("cart", JSON.stringify(cart));
+  const cartIcon = document.querySelector('.cartIcon');
+  if (cartIcon) cartIcon.classList.add('active');
 }
 const openAddToCartDialog = (product: Product) => {
   product.qty = productQty.value;
